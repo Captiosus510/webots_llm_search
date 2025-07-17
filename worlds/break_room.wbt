@@ -23,7 +23,9 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/computers/protos/Monitor.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/computers/protos/Keyboard.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/chairs/protos/OfficeChair.proto"
-EXTERNPROTO "../protos/Turtlebot4.proto"
+IMPORTABLE EXTERNPROTO "../protos/Turtlebot4.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/kitchen/utensils/protos/Glass.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/telephone/protos/OfficeTelephone.proto"
 
 WorldInfo {
   info [
@@ -35,8 +37,8 @@ WorldInfo {
   title "Break Room"
 }
 Viewpoint {
-  orientation 0.4458343041569776 0.4569144433838094 -0.7697148593239754 1.8057895423611958
-  position -0.7044527419796355 13.21173644404196 23.511345935477156
+  orientation 0.020182328164091136 -0.9979002018487227 -0.06154559919405617 5.648189506435333
+  position -9.405807826096545 0.22454913002792637 7.6199485383890355
 }
 TexturedBackground {
   texture "entrance_hall"
@@ -57,6 +59,13 @@ Floor {
       scale 0.4 0.4
     }
   }
+}
+Glass {
+  translation -0.09 0.34 0.01
+}
+OfficeTelephone {
+  translation 0.196076 0.289922 0
+  rotation 0 0 1 2.61799
 }
 CeilingSpotLight {
   translation -1.82 -2.27 2
@@ -1172,7 +1181,20 @@ OfficeChair {
   rotation 0 0 1 0.785397
   name "office chair(5)"
 }
-Turtlebot4 {
-  name "my_robot"
+Robot {
+  translation 0.12066 1.21 21.7627
+  rotation -0.5773489358556708 -0.5773509358554485 0.5773509358554485 -2.0944
+  children [
+    Camera {
+      name "rgb_camera"
+      width 1280
+      height 720
+    }
+  ]
+  name "global_cam"
   controller "<extern>"
+  supervisor TRUE
+  battery [
+    0
+  ]
 }
